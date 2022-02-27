@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import TodoItem from './components/TodoItem';
 import { v4 as uuidv4 } from 'uuid';
+import TodoList from './components/TodoList';
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <TodoItem {...todos[0]} deleteTodo = { deleteTodo } markComplete = {markComplete}/>
+      <TodoList todos = {todos} deleteTodo = { deleteTodo } markComplete = {markComplete}/>
     </div>
   );
 }
