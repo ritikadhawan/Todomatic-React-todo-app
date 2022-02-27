@@ -23,9 +23,22 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const deleteTodo = (id) => {
+    setTodos([...todos.filter(todo => todo.id !== id)]);
+  }
+
+  const markComplete = (id) => {
+    setTodos(todos.map(todo => {
+      if(id === todo.id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    }));
+  }
+
   return (
     <div className="App">
-      <TodoItem {...todos[0]}/>
+      <TodoItem {...todos[0]} deleteTodo = { deleteTodo } markComplete = {markComplete}/>
     </div>
   );
 }
